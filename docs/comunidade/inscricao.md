@@ -102,10 +102,26 @@ document.getElementById('cadastroForm').addEventListener('submit', e => {
 
 ---
 
-<p class="qe-footer">
-  Projeto de Extensão QuantEcon | Universidade Federal de Juiz de Fora — 
-  Contato: <a href="mailto:paulo.coimbra@ufjf.br">paulo.coimbra@ufjf.br</a> — Licença MIT
-</p>
+<script>
+const btnInscricao = document.getElementById('btnInscricao');
+const opcoesCurso = document.getElementById('opcoesCurso');
+const formulario = document.getElementById('formulario');
+const tituloCurso = document.getElementById('tituloCurso');
+const mensagem = document.getElementById('mensagem');
+
+btnInscricao.addEventListener('click', () => {
+  opcoesCurso.style.display = 'block';
+  btnInscricao.style.display = 'none';
+});
+
+function abrirFormulario(curso) {
+  tituloCurso.textContent = `Inscrição no Minicurso de ${curso}`;
+  formulario.style.display = 'block';
+  localStorage.setItem('cursoEscolhido', curso);
+}
+
+document.getElementById('btnPython').addEventListener('click', () => abrirFormulario('Python'));
+document.getElementById('btnR').addEventListener('click', () => abrirFormulario('R'));
 
 document.getElementById('cadastroForm').addEventListener('submit', async e => {
   e.preventDefault();
@@ -114,12 +130,30 @@ document.getElementById('cadastroForm').addEventListener('submit', async e => {
   const curso = localStorage.getItem('cursoEscolhido');
 
   const data = { email, matricula, curso };
-  
-  await fetch(https://script.google.com/macros/s/AKfycbyxDhSS44PYZ1TIvDkOO4DNj8Ev7hweP3cBX5Z5ZfwUkjLJJApWDsQCXZgBm6uBwxz2mg/exec)', {
-    method: 'POST',
-    body: JSON.stringify(data)
-  });
 
-  mensagem.style.display = 'block';
-  e.target.reset();
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyxDhSS44PYZ1TIvDkOO4DNj8Ev7hweP3cBX5Z5ZfwUkjLJJApWDsQCXZgBm6uBwxz2mg/exec', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+      mensagem.textContent = "✅ Inscrição enviada com sucesso!";
+      mensagem.style.color = "green";
+      mensagem.style.display = 'block';
+      e.target.reset();
+    } else {
+      mensagem.textContent = "⚠️ Erro ao enviar inscrição. Tente novamente.";
+      mensagem.style.color = "red";
+      mensagem.style.display = 'block';
+    }
+  } catch (error) {
+    console.error('Erro ao enviar:', error);
+    mensagem.textContent = "❌ Falha de conexão. Tente mais tarde.";
+    mensagem.style.color = "red";
+    mensagem.style.display = 'block';
+  }
 });
+</script>
+
