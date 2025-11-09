@@ -106,3 +106,20 @@ document.getElementById('cadastroForm').addEventListener('submit', e => {
   Projeto de Extensão QuantEcon | Universidade Federal de Juiz de Fora — 
   Contato: <a href="mailto:paulo.coimbra@ufjf.br">paulo.coimbra@ufjf.br</a> — Licença MIT
 </p>
+
+document.getElementById('cadastroForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const matricula = document.getElementById('matricula').value;
+  const curso = localStorage.getItem('cursoEscolhido');
+
+  const data = { email, matricula, curso };
+  
+  await fetch('https://script.google.com/macros/s/SEU-LINK-AQUI/exec', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });
+
+  mensagem.style.display = 'block';
+  e.target.reset();
+});
