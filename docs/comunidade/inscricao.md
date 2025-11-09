@@ -132,16 +132,24 @@ document.getElementById('cadastroForm').addEventListener('submit', async e => {
   const data = { email, matricula, curso };
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbw3F3tGd94L1KUtjBy1vD5OageppBjr_SKp0ODZef56GX9GEr5PVZXKCuZBI1zs484WWw/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwwodiL0RbIBPzto50OBs2Crcck7ZCbXeBWjktlQr8KNIfEgcU69--sP_V2xp-lcEDZ/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
 
+    // 🟢 Ler e tentar converter a resposta
     const respostaTexto = await response.text();
     console.log("Resposta do servidor:", respostaTexto);
 
-    if (response.ok) {
+    let resposta;
+    try {
+      resposta = JSON.parse(respostaTexto);
+    } catch {
+      resposta = { status: "erro" };
+    }
+
+    if (response.ok && resposta.status === "sucesso") {
       mensagem.textContent = "✅ Inscrição enviada com sucesso!";
       mensagem.style.color = "green";
       mensagem.style.display = 'block';
@@ -151,6 +159,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async e => {
       mensagem.style.color = "red";
       mensagem.style.display = 'block';
     }
+
   } catch (error) {
     console.error('Erro ao enviar:', error);
     mensagem.textContent = "❌ Falha de conexão. Tente mais tarde.";
@@ -159,5 +168,6 @@ document.getElementById('cadastroForm').addEventListener('submit', async e => {
   }
 });
 </script>
+
 
 
