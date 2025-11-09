@@ -17,6 +17,123 @@ Trilhas formativas com certificado, voltadas para temas como:
 - Machine Learning com scikit-learn
 
 **Inscrições abertas via formulário institucional.**
+---
+layout: default
+title: Minicurso
+nav_order: 3
+permalink: /minicurso/
+---
+{% include topnav.html %}
+
+# Minicursos
+
+Trilhas formativas com certificado, voltadas para temas como:
+
+- Introdução ao Python para Economia e Finanças
+- Análise de Dados com Pandas
+- Visualização de dados com Plotly e Dash
+- Modelos de linguagem e IA aplicada
+- Machine Learning com scikit-learn
+
+---
+
+## Inscrição
+
+<button id="btnInscricao" class="btn-primary">Quero me inscrever</button>
+
+<section id="opcoesCurso" style="display:none; margin-top:20px;">
+  <p>Escolha o minicurso desejado:</p>
+  <button id="btnPython" class="curso-btn">🐍 Python</button>
+  <button id="btnR" class="curso-btn">📊 R</button>
+</section>
+
+<section id="formulario" style="display:none; margin-top:30px;">
+  <h3 id="tituloCurso"></h3>
+  <form id="cadastroForm">
+    <label>Email institucional:</label><br>
+    <input type="email" id="email" required style="margin-bottom:10px; width:250px;"><br>
+    <label>Número de matrícula:</label><br>
+    <input type="text" id="matricula" required style="margin-bottom:15px; width:200px;"><br>
+    <button type="submit" class="btn-enviar">Enviar inscrição</button>
+  </form>
+  <p id="mensagem" style="display:none; color:green; font-weight:bold; margin-top:10px;">✅ Inscrição enviada com sucesso!</p>
+</section>
+
+<style>
+.btn-primary {
+  background-color: #3e8ed0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary:hover { background-color: #2b6ca3; }
+
+.curso-btn {
+  background-color: #5aa469;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.curso-btn:hover { background-color: #468c54; }
+
+.btn-enviar {
+  background-color: #3e8ed0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-enviar:hover { background-color: #2b6ca3; }
+</style>
+
+<script>
+const btnInscricao = document.getElementById('btnInscricao');
+const opcoesCurso = document.getElementById('opcoesCurso');
+const formulario = document.getElementById('formulario');
+const tituloCurso = document.getElementById('tituloCurso');
+const mensagem = document.getElementById('mensagem');
+
+btnInscricao.addEventListener('click', () => {
+  opcoesCurso.style.display = 'block';
+  btnInscricao.style.display = 'none';
+});
+
+function abrirFormulario(curso) {
+  tituloCurso.textContent = `Inscrição no Minicurso de ${curso}`;
+  formulario.style.display = 'block';
+  localStorage.setItem('cursoEscolhido', curso);
+}
+
+document.getElementById('btnPython').addEventListener('click', () => abrirFormulario('Python'));
+document.getElementById('btnR').addEventListener('click', () => abrirFormulario('R'));
+
+document.getElementById('cadastroForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const matricula = document.getElementById('matricula').value;
+  const curso = localStorage.getItem('cursoEscolhido');
+  console.log("Inscrição recebida:", { email, matricula, curso });
+  mensagem.style.display = 'block';
+  e.target.reset();
+});
+</script>
+
+---
+
+<p class="qe-footer">
+  Projeto de Extensão QuantEcon | Universidade Federal de Juiz de Fora — 
+  Contato: <a href="mailto:paulo.coimbra@ufjf.br">paulo.coimbra@ufjf.br</a> — Licença MIT
+</p>
+
 
 ---
 
