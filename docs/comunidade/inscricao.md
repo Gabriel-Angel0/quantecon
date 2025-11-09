@@ -68,35 +68,31 @@ permalink: /comunidade/inscricao/
 </style>
 
 <script>
-const btnInscricao = document.getElementById('btnInscricao');
-const opcoesCurso = document.getElementById('opcoesCurso');
-const formulario = document.getElementById('formulario');
-const tituloCurso = document.getElementById('tituloCurso');
-const mensagem = document.getElementById('mensagem');
+---
+layout: default
+title: Inscrição
+nav_order: 4
+permalink: /comunidade/inscricao/
+---
+{% include topnav.html %}
 
-btnInscricao.addEventListener('click', () => {
-  opcoesCurso.style.display = 'block';
-  btnInscricao.style.display = 'none';
-});
+# Inscrição nos Minicursos
 
-function abrirFormulario(curso) {
-  tituloCurso.textContent = `Inscrição no Minicurso de ${curso}`;
-  formulario.style.display = 'block';
-  localStorage.setItem('cursoEscolhido', curso);
-}
+<iframe 
+  src="<iframe src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8RBwk8BPDlu3zvH3qiy1vEC1SQWSm3S2UThp2M_pnBvYk9g/viewform?embedded=true" width="640" height="863" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>"
+  width="640" 
+  height="800" 
+  frameborder="0" 
+  marginheight="0" 
+  marginwidth="0">
+  Carregando…
+</iframe>
 
-document.getElementById('btnPython').addEventListener('click', () => abrirFormulario('Python'));
-document.getElementById('btnR').addEventListener('click', () => abrirFormulario('R'));
+<p class="qe-footer">
+  Projeto de Extensão QuantEcon | Universidade Federal de Juiz de Fora — 
+  Contato: <a href="mailto:paulo.coimbra@ufjf.br">paulo.coimbra@ufjf.br</a> — Licença MIT
+</p>
 
-document.getElementById('cadastroForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const email = document.getElementById('email').value;
-  const matricula = document.getElementById('matricula').value;
-  const curso = localStorage.getItem('cursoEscolhido');
-  console.log("Inscrição recebida:", { email, matricula, curso });
-  mensagem.style.display = 'block';
-  e.target.reset();
-});
 </script>
 {% endraw %}
 
