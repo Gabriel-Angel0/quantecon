@@ -115,7 +115,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async e => {
 
   const data = { email, matricula, curso };
   
-  await fetch('https://script.google.com/macros/s/SEU-LINK-AQUI/exec', {
+  await fetch(https://script.google.com/macros/s/AKfycbyxDhSS44PYZ1TIvDkOO4DNj8Ev7hweP3cBX5Z5ZfwUkjLJJApWDsQCXZgBm6uBwxz2mg/exec)', {
     method: 'POST',
     body: JSON.stringify(data)
   });
