@@ -102,72 +102,26 @@ document.getElementById('cadastroForm').addEventListener('submit', e => {
 
 ---
 
-<script>
-const btnInscricao = document.getElementById('btnInscricao');
-const opcoesCurso = document.getElementById('opcoesCurso');
-const formulario = document.getElementById('formulario');
-const tituloCurso = document.getElementById('tituloCurso');
-const mensagem = document.getElementById('mensagem');
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscrição Minicurso</title>
+</head>
+<body>
+  <h1>Inscreva-se para o Minicurso</h1>
 
-btnInscricao.addEventListener('click', () => {
-  opcoesCurso.style.display = 'block';
-  btnInscricao.style.display = 'none';
-});
-
-function abrirFormulario(curso) {
-  tituloCurso.textContent = `Inscrição no Minicurso de ${curso}`;
-  formulario.style.display = 'block';
-  localStorage.setItem('cursoEscolhido', curso);
-}
-
-document.getElementById('btnPython').addEventListener('click', () => abrirFormulario('Python'));
-document.getElementById('btnR').addEventListener('click', () => abrirFormulario('R'));
-
-document.getElementById('cadastroForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const email = document.getElementById('email').value;
-  const matricula = document.getElementById('matricula').value;
-  const curso = localStorage.getItem('cursoEscolhido');
-
-  const data = { email, matricula, curso };
-
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwwodiL0RbIBPzto50OBs2Crcck7ZCbXeBWjktlQr8KNIfEgcU69--sP_V2xp-lcEDZ/exec', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    // 🟢 Ler e tentar converter a resposta
-    const respostaTexto = await response.text();
-    console.log("Resposta do servidor:", respostaTexto);
-
-    let resposta;
-    try {
-      resposta = JSON.parse(respostaTexto);
-    } catch {
-      resposta = { status: "erro" };
-    }
-
-    if (response.ok && resposta.status === "sucesso") {
-      mensagem.textContent = "✅ Inscrição enviada com sucesso!";
-      mensagem.style.color = "green";
-      mensagem.style.display = 'block';
-      e.target.reset();
-    } else {
-      mensagem.textContent = "⚠️ Erro ao enviar inscrição. Tente novamente.";
-      mensagem.style.color = "red";
-      mensagem.style.display = 'block';
-    }
-
-  } catch (error) {
-    console.error('Erro ao enviar:', error);
-    mensagem.textContent = "❌ Falha de conexão. Tente mais tarde.";
-    mensagem.style.color = "red";
-    mensagem.style.display = 'block';
-  }
-});
-</script>
+  <iframe 
+    src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8RBwk8BPDlu3zvH3qiy1vEC1SQWSm3S2UThp2M_pnBvYk9g/viewform?embedded=true" width="640" height="863" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>"
+    width="640"
+    height="800"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0">
+    Carregando…
+  </iframe>
+</body>
+</html>
 
 
 
