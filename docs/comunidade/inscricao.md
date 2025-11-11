@@ -4,6 +4,9 @@ title: Inscrição
 nav_order: 4
 permalink: /comunidade/inscricao/
 ---
+
+{% include topnav.html %}
+
 <section style="text-align:center; margin-top:60px; margin-bottom:60px;">
   <h1 style="
     font-size: 3em;
@@ -14,8 +17,8 @@ permalink: /comunidade/inscricao/
     letter-spacing: 1px;
     margin-bottom: 10px;
   ">
-
-{% include topnav.html %}
+    Inscrição nos Minicursos
+  </h1>
 
   <p style="
     font-size: 1.15em;
@@ -55,7 +58,6 @@ permalink: /comunidade/inscricao/
     </div>
   </div>
 </section>
-
 
 <p class="qe-footer" style="margin-top: 30px; text-align: center;">
   Projeto de Extensão QuantEcon | Universidade Federal de Juiz de Fora — 
