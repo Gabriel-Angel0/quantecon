@@ -7,9 +7,6 @@ permalink: /comunidade/inscricao/
 
 {% include topnav.html %}
 
-    Inscrição nos Minicursos
-  </h1>
-
   <p style="
     font-size: 1.15em;
     color: #333;
