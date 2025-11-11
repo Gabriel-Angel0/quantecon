@@ -4,6 +4,16 @@ title: Inscrição
 nav_order: 4
 permalink: /comunidade/inscricao/
 ---
+<section style="text-align:center; margin-top:60px; margin-bottom:60px;">
+  <h1 style="
+    font-size: 3em;
+    font-weight: 800;
+    background: linear-gradient(90deg, #0056b3, #3e8ed0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  ">
 
 {% include topnav.html %}
 
