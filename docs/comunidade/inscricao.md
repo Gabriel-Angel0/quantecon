@@ -9,7 +9,7 @@ permalink: /comunidade/inscricao/
 
 # Inscrição nos Minicursos
 
-<section style="text-align:center; margin-top:50px; margin-bottom:40px;">
+<section style="text-align:center; margin-top:60px; margin-bottom:60px;">
   <h1 style="
     font-size: 3em;
     font-weight: 800;
@@ -23,10 +23,10 @@ permalink: /comunidade/inscricao/
   </h1>
 
   <p style="
-    font-size: 1.2em;
+    font-size: 1.15em;
     color: #333;
     max-width: 750px;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 30px auto;
     line-height: 1.6;
   ">
     Preencha o formulário abaixo para se inscrever no minicurso desejado.
@@ -47,7 +47,7 @@ permalink: /comunidade/inscricao/
       transition: all 0.3s ease;
     " onmouseover="this.style.boxShadow='0 6px 25px rgba(62,142,208,0.2)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
       <iframe
-        src="(https://docs.google.com/forms/d/e/1FAIpQLSc8RBwk8BPDlu3zvH3qiy1vEC1SQWSm3S2UThp2M_pnBvYk9g/viewform?usp=dialog)"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSc8RBwk8BPDlu3zvH3qiy1vEC1SQWSm3S2UThp2M_pnBvYk9g/viewform?usp=dialog"
         width="100%"
         height="900"
         frameborder="0"
@@ -60,7 +60,6 @@ permalink: /comunidade/inscricao/
     </div>
   </div>
 </section>
-
 
 
 <p class="qe-footer" style="margin-top: 30px; text-align: center;">
