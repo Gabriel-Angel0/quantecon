@@ -47,7 +47,7 @@ permalink: /comunidade/inscricao/
       transition: all 0.3s ease;
     " onmouseover="this.style.boxShadow='0 6px 25px rgba(62,142,208,0.2)'" onmouseout="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'">
       <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSc8RBWk8BPD1u3zvH3qiy1vEC1SQWsm35ZUThp2M_pnBvYk9g/viewform?embedded=true"
+        src="(https://docs.google.com/forms/d/e/1FAIpQLSc8RBwk8BPDlu3zvH3qiy1vEC1SQWSm3S2UThp2M_pnBvYk9g/viewform?usp=dialog)"
         width="100%"
         height="900"
         frameborder="0"
